@@ -23,6 +23,9 @@ app.get("/", middleware, (req, res) => {
   res.send(`<h1>Hello, World! ${user} </h1>`)
 })
 
+function errorHandler(error, req, res, next) {
+  if(error) return res.send("Please try again.")
+}
 
 
 app.listen(8000, () => console.log("server is listening on port 8000"))

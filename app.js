@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 
 const app = express()
 
@@ -11,6 +12,13 @@ function middleware2(req, res, next) {
   console.log("This is running from middleware 2")
   next()
 }
+
+
+app.use(session({
+  secret: "some-secret",
+  resave: false,
+}))
+
 
 app.use(middleware2)
 

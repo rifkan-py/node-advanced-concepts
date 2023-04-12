@@ -3,6 +3,7 @@ const session = require('express-session')
 
 const app = express()
 
+app.set("view-engine", "ejs")
 app.use(session({
   secret: "some-secret",
   resave: false,
@@ -31,8 +32,7 @@ app.use(middleware2)
 
 app.get("/", middleware, (req, res) => {
   const {user} = req
-  req.session.viewCount = req.session.viewCount++ || 1
-  res.send(`<h1>Hello, World! ${user} </h1> <br /> <h4>session value ${req.sessionID}<h4>`)
+  res.render("index.ejs")
 })
 
 function errorHandler(error, req, res, next) {

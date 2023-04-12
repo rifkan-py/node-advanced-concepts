@@ -3,7 +3,14 @@ const session = require('express-session')
 
 const app = express()
 
+app.use(session({
+  secret: "some-secret",
+  resave: false,
+  saveUninitialized: false
+}))
+
 function middleware(req, res, next) {
+  
   req.user = "rifkan"
   next()
 }
@@ -14,10 +21,6 @@ function middleware2(req, res, next) {
 }
 
 
-app.use(session({
-  secret: "some-secret",
-  resave: false,
-}))
 
 
 app.use(middleware2)
@@ -28,7 +31,8 @@ app.use(middleware2)
 
 app.get("/", middleware, (req, res) => {
   const {user} = req
-  res.send(`<h1>Hello, World! ${user} </h1>`)
+  req.session.viewCount = req.session.viewCount++ || 1
+  res.send(`<h1>Hello, World! ${user} </h1> <br /> <h4>session value ${req.sessionID}<h4>`)
 })
 
 function errorHandler(error, req, res, next) {

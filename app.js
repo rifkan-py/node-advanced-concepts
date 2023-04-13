@@ -1,6 +1,9 @@
 const express = require('express')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
+const passport = require('passport')
+const initializePassport = require("./passport.config")
+initializePassport(passport)
 
 const app = express()
 

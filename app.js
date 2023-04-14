@@ -1,9 +1,6 @@
 const express = require('express')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
-const passport = require('passport')
-const initializePassport = require("./passport.config")
-initializePassport(passport)
 
 const app = express()
 
@@ -39,41 +36,13 @@ app.use(middleware2)
 
 app.get("/", middleware, (req, res) => {
   const {user} = req
+  res.setHeader("set-cookie", ["name=rifkan"])
   res.render("index.ejs", {name: "Rifkan"})
 })
 
 app.get("/login", middleware, (req, res) => {
   const {user} = req
   res.render("login.ejs", {name: "Rifkan"})
-})
-
-app.post("/login", (req, res) => {
-
-})
-
-app.post("/register", async (req, res) => {
-  try {
-
-    if(req.body.email && req.body.password && req.body.confirm_password) {
-      if(req.body.password !== req.body.confirm_password) {
-        throw new Error("Passwords do not match")
-      }
-  
-      const hashedPassword = await bcrypt.hash(req.body.password, 10)
-      users.push({
-        id: Date.now().toString(),
-        email: req.body.email,
-        password: hashedPassword
-      })
-      res.redirect("/login")
-    } else {
-      throw new Error("all the fields are required")
-    }
-  } catch(error) {
-    res.redirect("/register")
-  }
-
-  console.log(users)
 })
 
 app.get("/register", middleware, (req, res) => {

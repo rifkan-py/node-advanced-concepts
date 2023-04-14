@@ -1,9 +1,6 @@
 const express = require('express')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
-const passport = require('passport')
-const initializePassport = require("./passport.config")
-initializePassport(passport)
 
 const app = express()
 
@@ -39,6 +36,7 @@ app.use(middleware2)
 
 app.get("/", middleware, (req, res) => {
   const {user} = req
+  res.setHeader("set-cookie", ["name=rifkan"])
   res.render("index.ejs", {name: "Rifkan"})
 })
 

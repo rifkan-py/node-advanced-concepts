@@ -1,6 +1,8 @@
 const express = require('express')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
+const passport = require("passport")
+const GoogleStrategy = require("passport-google-oauth")
 
 const app = express()
 
@@ -25,6 +27,12 @@ function middleware2(req, res, next) {
   next()
 }
 
+passport.use(new GoogleStrategy({
+  // passport options
+}, () => {
+  // passport callback functions
+}))
+
 
 
 
@@ -48,6 +56,10 @@ app.get("/login", middleware, (req, res) => {
 app.get("/register", middleware, (req, res) => {
   const {user} = req
   res.render("register.ejs", {name: "Rifkan"})
+})
+
+app.get("/google", (req, res) => {
+  // handle passport oauth logic
 })
 
 function errorHandler(error, req, res, next) {

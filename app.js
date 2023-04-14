@@ -45,35 +45,6 @@ app.get("/login", middleware, (req, res) => {
   res.render("login.ejs", {name: "Rifkan"})
 })
 
-app.post("/login", (req, res) => {
-
-})
-
-app.post("/register", async (req, res) => {
-  try {
-
-    if(req.body.email && req.body.password && req.body.confirm_password) {
-      if(req.body.password !== req.body.confirm_password) {
-        throw new Error("Passwords do not match")
-      }
-  
-      const hashedPassword = await bcrypt.hash(req.body.password, 10)
-      users.push({
-        id: Date.now().toString(),
-        email: req.body.email,
-        password: hashedPassword
-      })
-      res.redirect("/login")
-    } else {
-      throw new Error("all the fields are required")
-    }
-  } catch(error) {
-    res.redirect("/register")
-  }
-
-  console.log(users)
-})
-
 app.get("/register", middleware, (req, res) => {
   const {user} = req
   res.render("register.ejs", {name: "Rifkan"})

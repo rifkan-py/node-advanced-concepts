@@ -2,6 +2,7 @@ const express = require('express')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 const passport = require("passport")
+const mongoose = require('mongoose')
 
 const app = express()
 
@@ -62,6 +63,12 @@ function errorHandler(error, req, res, next) {
 }
 
 app.use(errorHandler)
+
+
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('database is connected successful'))
+  .catch(error => console.log(error))
 
 
 app.listen(8000, () => console.log("server is listening on port 8000"))

@@ -33,9 +33,6 @@ function middleware2(req, res, next) {
 
 app.use(middleware2)
 
-// 1st middleware2 will execute
-// and then actual middleware will execute
-// after that controller middleware will execute
 
 app.get("/", middleware, (req, res) => {
   const {user} = req

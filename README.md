@@ -45,11 +45,11 @@ IN WITNESS WHEREOF, Contributor has executed this Agreement as of the date first
 
 Contributor:
 
-[Name]
+Mohamed Rifkan
 
-[Email address]
+mohamedrifkan00127@gmail.com
 
 [Signature] (if submitting a physical copy)
 
-Date: [date]
+Date: 2023/04/17
 

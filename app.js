@@ -1,12 +1,8 @@
 const express = require('express')
 const session = require('express-session')
-const bcrypt = require('bcrypt')
-const passport = require("passport")
 const mongoose = require('mongoose')
 
 const app = express()
-
-const users = []
 
 app.set("view-engine", "ejs")
 app.use(express.urlencoded({extended: false}))

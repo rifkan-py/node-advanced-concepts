@@ -22,26 +22,6 @@ Grant of Rights
 
     Contributor hereby agrees to execute and deliver such additional documents and take such further actions as may be reasonably necessary to effectuate the purposes of this Agreement.
 
-License
-
-    Contributor retains all rights, title, and interest in and to the Contribution, subject only to the license granted to the Project in Section 1 above.
-
-    The Project may choose to distribute the Contribution under the terms of any open source license or proprietary license, as determined by the Project in its sole discretion.
-
-Disclaimer of Warranty
-
-Contributor agrees that any Contribution submitted to the Project is provided "AS IS" without any warranty of any kind, express or implied, including, without limitation, warranties of merchantability, fitness for a particular purpose, or non-infringement.
-Indemnification
-
-Contributor agrees to indemnify, defend, and hold harmless the Project and its officers, directors, employees, and agents from and against any and all claims, liabilities, damages, losses, or expenses, including reasonable attorneys' fees and costs, arising out of or in any way connected with Contributor's breach of any representation or warranty in this Agreement.
-Governing Law and Jurisdiction
-
-This Agreement shall be governed by and construed in accordance with the laws of [state/country], without regard to its conflict of law provisions. Any legal action arising out of or in connection with this Agreement shall be brought in the courts of [city/county/state/country].
-Entire Agreement
-
-This Agreement sets forth the entire understanding and agreement of the parties with respect to the subject matter hereof, and supersedes all prior negotiations, understandings, and agreements between the parties.
-
-IN WITNESS WHEREOF, Contributor has executed this Agreement as of the date first above written.
 
 Contributor:
 

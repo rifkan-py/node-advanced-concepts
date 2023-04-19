@@ -12,37 +12,16 @@ app.use(session({
   saveUninitialized: false
 }))
 
-function middleware(req, res, next) {
-  
-  req.user = "rifkan"
-  next()
-}
-
-function middleware2(req, res, next) {
-  console.log("This is running from middleware 2")
-  next()
-}
-
-
-
-
-
-app.use(middleware2)
-
-
 app.get("/", middleware, (req, res) => {
-  const {user} = req
   res.setHeader("set-cookie", ["name=rifkan"])
   res.render("index.ejs", {name: "Rifkan"})
 })
 
 app.get("/login", middleware, (req, res) => {
-  const {user} = req
   res.render("login.ejs", {name: "Rifkan"})
 })
 
 app.get("/register", middleware, (req, res) => {
-  const {user} = req
   res.render("register.ejs", {name: "Rifkan"})
 })
 

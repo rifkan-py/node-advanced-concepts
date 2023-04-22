@@ -1,7 +1,7 @@
 const express = require('express')
 const session = require('express-session')
-const mongoose = require('mongoose')
 const errorHandler = require('./middleware/errorHandler')
+const connectDB = require('./config/connectDB')
 
 const app = express()
 
@@ -30,9 +30,7 @@ app.get("/register", middleware, (req, res) => {
 app.use(errorHandler)
 
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('database is connected successful'))
-  .catch(error => console.log(error))
+connectDB()
 
 
 app.listen(8000, () => console.log("server is listening on port 8000"))

@@ -1,6 +1,7 @@
 const express = require('express')
 const session = require('express-session')
-const mongoose = require('mongoose')
+const errorHandler = require('./middleware/errorHandler')
+const connectDB = require('./config/connectDB')
 
 const app = express()
 
@@ -12,35 +13,28 @@ app.use(session({
   saveUninitialized: false
 }))
 
+// home route
 app.get("/", middleware, (req, res) => {
   res.setHeader("set-cookie", ["name=rifkan"])
   res.render("index.ejs", {name: "Rifkan"})
 })
 
+//login route
 app.get("/login", middleware, (req, res) => {
   res.render("login.ejs", {name: "Rifkan"})
 })
 
+//register route
 app.get("/register", middleware, (req, res) => {
   res.render("register.ejs", {name: "Rifkan"})
 })
 
-app.get("/google", (req, res) => {
-  // handle passport oauth logic
-})
-
-function errorHandler(error, req, res, next) {
-  console.log(error)
-  if(error) return res.send("Please try again.")
-}
-
+//error handler middleware
 app.use(errorHandler)
 
 
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('database is connected successful'))
-  .catch(error => console.log(error))
+// database connection
+connectDB()
 
 
 app.listen(8000, () => console.log("server is listening on port 8000"))

@@ -25,9 +25,6 @@ app.get("/register", middleware, (req, res) => {
   res.render("register.ejs", {name: "Rifkan"})
 })
 
-app.get("/google", (req, res) => {
-  // handle passport oauth logic
-})
 
 function errorHandler(error, req, res, next) {
   console.log(error)

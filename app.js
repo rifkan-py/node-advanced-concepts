@@ -1,6 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const mongoose = require('mongoose')
+const errorHandler = require('./middleware/errorHandler')
 
 const app = express()
 
@@ -26,13 +27,7 @@ app.get("/register", middleware, (req, res) => {
 })
 
 
-function errorHandler(error, req, res, next) {
-  console.log(error)
-  if(error) return res.send("Please try again.")
-}
-
 app.use(errorHandler)
-
 
 
 mongoose.connect(process.env.MONGO_URI)

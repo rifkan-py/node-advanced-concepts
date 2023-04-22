@@ -13,23 +13,27 @@ app.use(session({
   saveUninitialized: false
 }))
 
+// home route
 app.get("/", middleware, (req, res) => {
   res.setHeader("set-cookie", ["name=rifkan"])
   res.render("index.ejs", {name: "Rifkan"})
 })
 
+//login route
 app.get("/login", middleware, (req, res) => {
   res.render("login.ejs", {name: "Rifkan"})
 })
 
+//register route
 app.get("/register", middleware, (req, res) => {
   res.render("register.ejs", {name: "Rifkan"})
 })
 
-
+//error handler middleware
 app.use(errorHandler)
 
 
+// database connection
 connectDB()
 
 

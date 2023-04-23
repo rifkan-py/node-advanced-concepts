@@ -7,11 +7,6 @@ const app = express()
 
 app.set("view-engine", "ejs")
 app.use(express.urlencoded({extended: false}))
-app.use(session({
-  secret: "some-secret",
-  resave: false,
-  saveUninitialized: false
-}))
 
 // home route
 app.get("/", middleware, (req, res) => {

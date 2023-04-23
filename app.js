@@ -1,5 +1,4 @@
 const express = require('express')
-const session = require('express-session')
 const errorHandler = require('./middleware/errorHandler')
 const connectDB = require('./config/connectDB')
 

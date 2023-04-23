@@ -16,17 +16,17 @@ app.use(session({
 // home route
 app.get("/", middleware, (req, res) => {
   res.setHeader("set-cookie", ["name=rifkan"])
-  res.render("index.ejs", {name: "Rifkan"})
+  res.render("index.ejs")
 })
 
 //login route
 app.get("/login", middleware, (req, res) => {
-  res.render("login.ejs", {name: "Rifkan"})
+  res.render("login.ejs")
 })
 
 //register route
 app.get("/register", middleware, (req, res) => {
-  res.render("register.ejs", {name: "Rifkan"})
+  res.render("register.ejs")
 })
 
 //error handler middleware

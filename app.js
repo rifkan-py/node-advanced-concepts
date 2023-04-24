@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: false}))
 
 // home route
 app.get("/", middleware, (req, res) => {
-  res.setHeader("set-cookie", ["name=rifkan"])
+  // res.setHeader("set-cookie", ["name=rifkan"])
   res.render("index.ejs")
 })
 

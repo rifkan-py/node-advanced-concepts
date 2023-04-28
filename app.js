@@ -8,17 +8,17 @@ app.set("view-engine", "ejs")
 app.use(express.urlencoded({extended: false}))
 
 // home route
-app.get("/", middleware, (req, res) => {
+app.get("/", (req, res) => {
   res.render("index.ejs")
 })
 
 //login route
-app.get("/login", middleware, (req, res) => {
+app.get("/login", (req, res) => {
   res.render("login.ejs")
 })
 
 //register route
-app.get("/register", middleware, (req, res) => {
+app.get("/register", (req, res) => {
   res.render("register.ejs")
 })
 

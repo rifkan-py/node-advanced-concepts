@@ -4,7 +4,3 @@
     - nodejs
     - express
     - mongoose
-    - ejs
-    - passport
-    - jwt
-    
